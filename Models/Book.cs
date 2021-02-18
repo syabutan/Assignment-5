@@ -19,7 +19,7 @@ namespace Assignment5.Models
         public string Publisher { get; set; }
         //This only allows xxx-xxxxxxxxxx format
         [Required]
-        [RegularExpression(@"^\([0-9]{3})\[-]([0-9]{10})$", ErrorMessage = "ISBN must be 13 digits number")]
+        [RegularExpression(@"^([0-9]{3})[-]([0-9]{10})$", ErrorMessage = "ISBN must be xxx-xxxxxxxxxx format")]
         public string ISBN { get; set; }
         [Required]
         public string Category { get; set; }

@@ -7,14 +7,14 @@
 <header>
     <h1 class="bg-success text-center text-white">Book List</h1>
 </header>
-<!--List table-->
 
+<!--List table-->
 <div class="container">
     <table class="table table-bordered tale-striped table-sm">
         <thead>
             <tr><th>Title</th><th>Author</th><th>Publisher</th><th>ISBN</th><th>Classification/Category</th><th>Price</th></tr>
         </thead>
-
+        <!--For loop to show all items in the SeedData.cs-->
         <tbody>
             @foreach (var x in Model)
             {
