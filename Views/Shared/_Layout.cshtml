@@ -7,11 +7,40 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <!--Use bootstrap for styling-->
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
 </head>
 <body>
-    <div >
-        @RenderBody()
+
+
+    <div class="row m-1 p-1">
+        <div class="col-4">
+            <h1 class="bg-info text-center text-white">Find Your Favorite One</h1>
+            <!--img-thumbnail is the new bootstrap!-->
+            <image src="https://c1.staticflickr.com/1/134/330646039_ddc568f138_b.jpg" class="img-thumbnail" width="420"></image>
+            <br />
+            <br />
+            <!--kbd and pre are the new bootstrap!-->
+            <p>Use <kbd>Ctrl + F</kbd> to find what you are looking for!</p>
+            <pre>
+                When you press "Ctrl" and "f" at the same time, <br />
+
+                a search bar will pop up. Put your favorite <br />
+
+                book's name in the bar, and it will bring the <br />
+
+                information about the book for you:)
+            </pre>
+        </div>
+
+        <div class="col-8">
+            @RenderBody()
+        </div>
     </div>
-   
+
+
+
+
+
 </body>
 </html>

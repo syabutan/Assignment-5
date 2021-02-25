@@ -27,11 +27,13 @@ namespace Assignment5
         {
             services.AddControllersWithViews();
 
+            //add Database context just created
             services.AddDbContext<BookListDbContext> (options =>
             {
+                //enable the database context to use sql server
                 options.UseSqlServer(Configuration["ConnectionStrings:BookListConnection"]);
             });
-
+            //add scope for repository and its implementator
             services.AddScoped<iBookListRepository, EFBookRepository>();
         }
 
@@ -59,10 +61,13 @@ namespace Assignment5
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+                    "pagination",
+                    "P{page}",
+                    new { Controller = "Home", action = "Index" });
 
+                endpoints.MapDefaultControllerRoute();
+            });
+           
             SeedData.EnsurePopulated(app);
         }
     }

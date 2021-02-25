@@ -8,6 +8,7 @@ namespace Assignment5.Models
 {
     public class EFBookRepository : iBookListRepository
     {
+        //_context set as database
         private BookListDbContext _context;
 
         //Constructor
@@ -15,6 +16,7 @@ namespace Assignment5.Models
         {
             _context = context;
         }
+        //Put everything in the list into dadtabase
         public IQueryable<Book> Books => _context.Books;
     }
 }

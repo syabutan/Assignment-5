@@ -14,7 +14,10 @@ namespace Assignment5.Models
         [Required]
         public string Title { get; set; }
         [Required]
-        public string Author { get; set; }
+        public string AuthorFirstName{ get; set; }
+        public string AuthorMiddleName { get; set; }
+        [Required]
+        public string AuthorLastName{ get; set; }
         [Required]
         public string Publisher { get; set; }
         //This only allows xxx-xxxxxxxxxx format
@@ -22,8 +25,12 @@ namespace Assignment5.Models
         [RegularExpression(@"^([0-9]{3})[-]([0-9]{10})$", ErrorMessage = "ISBN must be xxx-xxxxxxxxxx format")]
         public string ISBN { get; set; }
         [Required]
+        public string Classification { get; set; }
+        [Required]
         public string Category { get; set; }
         [Required]
         public float Price { get; set; }
+        [Required]
+        public int NumberOfPages { get; set; }
     }
 }
