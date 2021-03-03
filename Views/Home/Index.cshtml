@@ -5,7 +5,7 @@
 @model BookListViewModel
 
 <header>
-    <h1 class="bg-success text-center text-white">Book List</h1>
+    <!--<h1 class="text-center fontF">Book List</h1>-->
 </header>
 
 <!--List table-->
@@ -29,18 +29,8 @@
         <tbody>
             @foreach (var x in Model.Books)
             {
-                <tr>
-                    <td>@x.Title</td>
-                    <td>@x.AuthorFirstName</td>
-                    <td>@x.AuthorMiddleName</td>
-                    <td>@x.AuthorLastName</td>
-                    <td>@x.Publisher</td>
-                    <td>@x.ISBN</td>
-                    <td>@x.Classification</td>
-                    <td>@x.Category</td>
-                    <td>@x.Price</td>
-                    <td>@x.NumberOfPages</td>
-                </tr>
+                <!--access to BookSummary.cshtml and grab information-->
+                <partial name="BookSummary" model="x" />
             }
         </tbody>
     </table>
@@ -49,12 +39,14 @@
 
 
 <footer>
-    <div page-model="@Model.PagingInfo"
+    <div 
+         page-model="@Model.PagingInfo"
          page-action="Index"
          page-classes-enabled="true"
          page-class="btn"
          page-class-normal="btn-outline-dark"
          page-class-selected="btn-primary"
+         page-url-category="@Model.Category"
          class="btn-group pull-right m-1">
     </div>
 </footer>

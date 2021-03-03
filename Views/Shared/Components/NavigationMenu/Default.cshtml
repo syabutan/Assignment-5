@@ -1,0 +1,20 @@
+﻿@model IEnumerable<string>
+
+<br />
+<h3 class="text-dark">Category Filter</h3>
+@foreach (string category in Model)
+{
+    <a class="btn btn-block @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")"
+       asp-action="Index"
+       asp-controller="Home"
+       asp-route-category="@category"
+       asp-route-page="1">
+        @category
+    </a>
+}
+<br />
+<br />
+<a class="btn btn-block btn-outline-secondary" asp-action="Index" asp-controller="Home"
+   asp-route-category="">
+    Clear Filter
+</a>
