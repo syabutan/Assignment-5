@@ -41,7 +41,7 @@ namespace Assignment5.Pages
         }
         public IActionResult OnPostRemove(long bookId, string returnUrl)
         {
-            Book book = repository.Books.FirstOrDefault(b => b.BookId == bookId);
+            //Book book = repository.Books.FirstOrDefault(b => b.BookId == bookId);
 
             //Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart(); // added
 
