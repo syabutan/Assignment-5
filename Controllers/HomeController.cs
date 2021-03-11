@@ -1,12 +1,10 @@
-﻿using Assignment5.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using Microsoft.AspNetCore.Mvc;
+using Assignment5.Models;
 using System.Linq;
-using System.Threading.Tasks;
 using Assignment5.Models.ViewModels;
+
+using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 
 namespace Assignment5.Controllers
 {
@@ -24,24 +22,24 @@ namespace Assignment5.Controllers
             _repository = repository;
         }
         //Show only "PageSize" items in a single page
-        public IActionResult Index(string category, int page = 1)
+        public IActionResult Index(string category, int pageNum = 1)
         {
             return View(new BookListViewModel
             {
                 Books = _repository.Books
                         .Where(p => category == null || p.Category == category)
                         .OrderBy(p => p.BookId)
-                        .Skip((page - 1) * PageSize)
+                        .Skip((pageNum - 1) * PageSize)
                         .Take(PageSize)
                     ,
                 PagingInfo = new PagingInfo
                 {
-                    CurrentPage = page,
+                    CurrentPage = pageNum,
                     ItemsPerPage = PageSize,
                     TotalNumItems = category == null ? _repository.Books.Count() : 
                         _repository.Books.Where(x => x.Category == category).Count()
                 },
-                Category = category
+                CurrentCategory = category
             });
         }
 
@@ -54,6 +52,7 @@ namespace Assignment5.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+
         }
     }
 }

@@ -31,6 +31,7 @@ namespace Assignment5.Infrastructure
         [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
         public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
 
+        //btn decoration
         public bool PageClassesEnabled { get; set; } = false;
         public string PageClass { get; set; }
         public string PageClassNormal { get; set; }
@@ -48,13 +49,14 @@ namespace Assignment5.Infrastructure
                 //build a tag in html
                 TagBuilder tag = new TagBuilder("a");
 
-                PageUrlValues["page"] = i;
+                PageUrlValues["pageNum"] = i;
                 //set "href = page number" 
                 tag.Attributes["href"] = urlHelper.Action(
                     PageAction, 
                     PageUrlValues
                 );
 
+                //btn decoration
                 if (PageClassesEnabled)
                 {
                     tag.AddCssClass(PageClass);
@@ -65,7 +67,7 @@ namespace Assignment5.Infrastructure
 
                 result.InnerHtml.AppendHtml(tag);
             }
-            //Append page number tothe end of url
+            //Append page number to the end of url
             output.Content.AppendHtml(result.InnerHtml);
         }
 

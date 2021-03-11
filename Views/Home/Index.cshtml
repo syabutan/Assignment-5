@@ -10,30 +10,15 @@
 
 <!--List table-->
 <div class="">
-    <table class="table table-bordered tale-striped table-sm">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author First Name</th>
-                <th>Author Middle Name</th>
-                <th>Author Last Name</th>
-                <th>Publisher</th>
-                <th>ISBN</th>
-                <th>Classification</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Number of Pages</th>
-            </tr>
-        </thead>
+
         <!--For loop to show all items in the SeedData.cs-->
-        <tbody>
+
             @foreach (var x in Model.Books)
             {
                 <!--access to BookSummary.cshtml and grab information-->
                 <partial name="BookSummary" model="x" />
             }
-        </tbody>
-    </table>
+
 </div>
 
 
@@ -46,7 +31,7 @@
          page-class="btn"
          page-class-normal="btn-outline-dark"
          page-class-selected="btn-primary"
-         page-url-category="@Model.Category"
+         page-url-category="@Model.CurrentCategory"
          class="btn-group pull-right m-1">
     </div>
 </footer>

@@ -32,5 +32,6 @@ namespace Assignment5.Models
         public float Price { get; set; }
         [Required]
         public int NumberOfPages { get; set; }
+
     }
 }
